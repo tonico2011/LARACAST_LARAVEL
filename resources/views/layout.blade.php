@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <title>@yield('title', 'Laracasts')</title>
+    <title></title>
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
 </head>
 <body>
-   @yield('content')
-
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/contact">Conact Us</a></li>
-    </ul>
+    <div class="container">
+        @yield('content')
+    </div>
+   
 </body>
 </html>
