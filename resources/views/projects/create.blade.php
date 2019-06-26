@@ -8,14 +8,17 @@
    
       <div class="control">
          <label for="title" class="label">Title</label>
-         <input type="text" class="input" name="title" placeholder="Project title" required>
+         
+         <div>
+            <input type="text" class="input" name="title" {{ $errors->has('title') ? 'is-danger' : '' }} value="{{ old('title') }}">
+         </div>
       </div>
    
       <div>
          <label for="description" class="label">Description</label>
 
          <div>
-            <textarea name="description" class="textarea"></textarea>
+            <textarea name="description" class="textarea" {{ $errors->has('description') ? 'is-danger' : '' }}>{{ old('description') }}</textarea>
          </div>
       </div> 
 
