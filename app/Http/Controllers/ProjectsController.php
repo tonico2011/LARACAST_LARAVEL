@@ -29,7 +29,7 @@ class ProjectsController extends Controller
             'title' => ['required', 'min:3'],
             'description' => ['required', 'min:5']
         ]);
-        
+
         Project::create($attributes);
         return redirect('/projects');
         

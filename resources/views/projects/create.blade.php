@@ -22,8 +22,10 @@
          </div>
       </div> 
 
-      <div>
-         <button type="submit" style="margin-top: 10px; margin-bottom: 10px">Create Project</button>
+      <div class="field">
+         <div class="control">
+            <button type="submit" class="button is-link" style="margin-top: 10px; margin-bottom: 10px">Create Project</button>
+         </div>
       </div>
 
       @if ($errors->any())
