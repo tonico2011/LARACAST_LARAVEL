@@ -25,32 +25,32 @@ class ProjectsController extends Controller
 
     public function store()
     {
-        $project = new Project();
-
-        $project->title = request('title');
-        $project->description = request('description');
-
-        $project->save();
+        request()->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+        Project::create([
+            'title' => request('title'),
+            'description' => request('description')
+        ]);
 
         return redirect('/projects');
         
     }
-    public function show()
+    // Here using 'route model wrapping'
+    public function show(Project $project)
     {
-        
+        return view('projects.show', compact('project'));
     }   
 
-    public function edit($id)
+    public function edit(Project $project)
     {
-        $project = Project::find($id);
         return view('projects.edit', compact('project'));
     }
 
-    public function update($id)
+    public function update(Project $project)
     {
         // dd('hello');
-        $project = Project::find($id);
-
         $project->title = request('title');
         $project->description = request('description');
         $project->save();
@@ -59,10 +59,9 @@ class ProjectsController extends Controller
 
     }
 
-    public function destroy()
+    public function destroy(Project $project)
     {
-        $project = Project::find($id);
-        $project->destroy();
+        $project->delete();
         return redirect('/projects');
     }
 }
